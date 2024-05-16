@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="col-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">Nombre País</th>
+          <th class="h4">Habitantes</th>
+          <th class="h4">Moneda</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of paises">
+          <td>{{p.nombre}}</td>
+          <td>{{p.habitantes}}</td>
+          <td>{{p.moneda}}</td>
+       </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
