@@ -1,20 +1,28 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de cursos del estudiante</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
 <div class="container-fluid">
-  <div class="col-6">
-    <table class="table">
-      <thead>
-        <tr>
-          <th class="h4">Nombre País</th>
-          <th class="h4">Habitantes</th>
-          <th class="h4">Moneda</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let p of paises">
-          <td>{{p.nombre}}</td>
-          <td>{{p.habitantes}}</td>
-          <td>{{p.moneda}}</td>
-       </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+    <h1>Lista de cursos del estudiante</h1>
+    <div class="col-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="h4">Nombre País</th>
+                    <th class="h4">Habitantes</th>
+                    <th class="h4">Moneda</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of paises">
+                    <td>{{p.nombre}}</td>
+                    <td>{{p.habitantes}}</td>
+                    <td>{{p.moneda}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
