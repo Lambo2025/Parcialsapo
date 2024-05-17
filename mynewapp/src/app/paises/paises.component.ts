@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pais } from './pais';
 import { dataPaises } from './datapaises';
+import { PaisService } from './pais.service';
 
 @Component({
   selector: 'app-paises',
@@ -9,16 +10,22 @@ import { dataPaises } from './datapaises';
 })
 export class PaisesComponent implements OnInit {
 
-
-  paises: Array<Pais> = [];
-
-  constructor() { }
-  getPaisesList() : Array<Pais> {
-    return dataPaises;
-  }
+  paises: Pais[] = [];
+  selected: boolean = false;
+  selectedPais!: Pais;
+  paisMasAntiguo: Pais | null = null;
 
   ngOnInit() {
-    this.paises = this.getPaisesList();
+    this.paises = dataPaises;
+    this.calcularPaisMasAntiguo();
   }
 
+  onSelected(pais: Pais): void {
+    this.selectedPais = pais;
+    this.selected = true;
+  }
+
+  calcularPaisMasAntiguo() {
+    this.paisMasAntiguo = this.paises.reduce((min, p) => p.year_formacion < min.year_formacion ? p : min, this.paises[0]);
+  }
 }

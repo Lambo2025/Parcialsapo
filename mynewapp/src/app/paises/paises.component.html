@@ -1,28 +1,33 @@
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de cursos del estudiante</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-</head>
-<body>
 <div class="container-fluid">
-    <h1>Lista de cursos del estudiante</h1>
-    <div class="col-6">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="h4">Nombre País</th>
-                    <th class="h4">Habitantes</th>
-                    <th class="h4">Moneda</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let p of paises">
-                    <td>{{p.nombre}}</td>
-                    <td>{{p.habitantes}}</td>
-                    <td>{{p.moneda}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="table-container">
+      <h1>Lista de paises :3 sapo hpta</h1>
+      <div class="col-12">
+          <table class="table table-hover">
+              <thead class="thead-dark">
+                  <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Año Formación</th>
+                      <th scope="col">Lenguaje</th>
+                      <th scope="col">Capital</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let p of paises" (click)="onSelected(p)" style="cursor: pointer;">
+                      <td>{{ p.id }}</td>
+                      <td><a href="#">{{ p.nombre }}</a></td>
+                      <td>{{ p.year_formacion }}</td>
+                      <td>{{ p.lenguaje }}</td>
+                      <td>{{ p.capital }}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="mt-3" *ngIf="paisMasAntiguo">
+          <p>El país más antiguo del listado es <strong>{{ paisMasAntiguo.nombre }}</strong> y fue conformado en <strong>{{ paisMasAntiguo.year_formacion }}</strong>.</p>
+      </div>
+      <div *ngIf="selected">
+        <app-pais-detail [paisDetail]="selectedPais"></app-pais-detail>
+      </div>
+  </div>
+</div>

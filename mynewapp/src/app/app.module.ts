@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PaisesModule } from './paises/paises.module';
+import { HttpClientModule } from '@angular/common/http';
+import { PaisesModule } from './paises/paises.module'; // Add this import statement
 
 @NgModule({
   declarations: [
@@ -11,8 +12,8 @@ import { PaisesModule } from './paises/paises.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    PaisesModule
+    PaisesModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
